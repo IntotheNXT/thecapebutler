@@ -65,11 +65,21 @@ if (placeGrid && placeWide && !placeGrid.querySelector('.place-cta')) {
         <h3>Planning a special trip to the Cape?</h3>
         <p class="place-cta-copy">Share your dates, who is travelling and what your family loves. We will come back with a first view on how we can help shape the Cape around you.</p>
       </div>
-      <a class="button button-dark place-cta-button" href="mailto:hello@thecapebutler.com?subject=Tell%20us%20about%20your%20Cape%20trip&body=Hello%20The%20Cape%20Butler%2C%0A%0AWe%20are%20planning%20a%20trip%20to%20the%20Cape.%0A%0ATravelling%20dates%3A%0AWho%20is%20travelling%3A%0ASpecial%20occasion%3A%0AWhat%20we%20love%3A%0AWhat%20would%20make%20the%20trip%20unforgettable%3A%0A%0AName%3A%0APhone%3A">Tell us about your trip</a>
+      <a class="button button-dark place-cta-button" href="mailto:bas.kemme@gmail.com?subject=Tell%20us%20about%20your%20Cape%20trip&body=Hello%20The%20Cape%20Butler%2C%0A%0AWe%20are%20planning%20a%20trip%20to%20the%20Cape.%0A%0ATravelling%20dates%3A%0AWho%20is%20travelling%3A%0ASpecial%20occasion%3A%0AWhat%20we%20love%3A%0AWhat%20would%20make%20the%20trip%20unforgettable%3A%0A%0AName%3A%0APhone%3A">Tell us about your trip</a>
     </div>
   `;
   placeWide.insertAdjacentElement('afterend', card);
 }
+
+const oldEmail = 'hello@thecapebutler.com';
+const contactEmail = 'bas.kemme@gmail.com';
+
+document.querySelectorAll(`a[href^="mailto:${oldEmail}"]`).forEach(link => {
+  link.href = link.href.replace(`mailto:${oldEmail}`, `mailto:${contactEmail}`);
+  if (link.textContent.trim() === oldEmail) {
+    link.textContent = contactEmail;
+  }
+});
 
 const year = document.getElementById('year');
 if (year) year.textContent = new Date().getFullYear();
